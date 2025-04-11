@@ -89,6 +89,10 @@ function collision(x, y, array) {
 function showWish(index) {
   const wishBox = document.getElementById("wishBox");
   wishBox.textContent = wishes[index];
+
+  const eatSound = document.getElementById("eatSound");
+  eatSound.currentTime = 0;
+  eatSound.play();
 }
 
 function celebrate() {
