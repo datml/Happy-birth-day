@@ -76,11 +76,21 @@ function drawGame() {
   }
 
   snake.unshift(newHead);
-
+    if (headX === food.x && headY === food.y) {
+    showWish(score);
+    score++;
+    food = spawnFood();
+  
+    // Increase speed
+    speed = Math.max(60, speed - 20); // Lower = faster
+    clearInterval(game);
+    game = setInterval(drawGame, speed);
+  }
   if (score >= wishes.length) {
     celebrate();
     clearInterval(game);
   }
+  
 }
 
 function collision(x, y, array) {
@@ -100,6 +110,7 @@ function celebrate() {
   document.body.style.background = "url('https://i.imgur.com/3eD3Flz.jpg') center/cover no-repeat";
   document.getElementById("wishBox").style.display = "none";
   document.getElementById("celebration").style.display = "flex";
+  document.getElementById("restartBtn").style.display = "inline-block";
   launchConfetti();
 }
 
