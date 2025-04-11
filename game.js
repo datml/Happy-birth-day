@@ -122,5 +122,22 @@ function randomColor() {
   const colors = ["#f06292", "#ba68c8", "#4dd0e1", "#81c784", "#ffd54f"];
   return colors[Math.floor(Math.random() * colors.length)];
 }
+function restartGame() {
+  // Reset everything
+  snake = [{ x: 9 * box, y: 10 * box }];
+  direction = null;
+  food = spawnFood();
+  score = 0;
+  speed = 150;
+
+  document.getElementById("wishBox").style.display = "block";
+  document.getElementById("wishBox").textContent = "";
+  document.getElementById("celebration").style.display = "none";
+  document.getElementById("restartBtn").style.display = "none";
+  document.body.style.background = "#fce4ec";
+
+  clearInterval(game);
+  game = setInterval(drawGame, speed);
+}
 
 let game = setInterval(drawGame, 150);
