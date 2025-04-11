@@ -51,3 +51,14 @@ body {
   cursor: pointer;
   display: none;
 }
+#toggleMusicBtn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
