@@ -1,89 +1,42 @@
-/* Global Styles */
 body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-  font-family: 'Arial', sans-serif;
-  display: flex;
+  text-align: center;
+  background: #fce4ec;
+  font-family: Arial, sans-serif;
+}
+
+#gameCanvas {
+  border: 3px solid #e91e63;
+  background: #fff;
+  margin-top: 20px;
+}
+
+#wishBox {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #880e4f;
+  min-height: 30px;
+}
+
+#celebration {
+  display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  margin-top: 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
-/* Intro Section */
-.intro {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.intro h1 {
-  color: #e91e63;
+#celebration img {
+  width: 200px;
+  border-radius: 20px;
   margin-bottom: 10px;
 }
 
-.intro p {
-  font-size: 1.1em;
+@keyframes confetti {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(500px); }
 }
 
-/* Puzzle Container */
-.puzzle-container {
-  display: grid;
-  grid-template-columns: repeat(2, 150px);
-  grid-gap: 15px;
-  margin-bottom: 20px;
-}
-
-.puzzle-piece {
-  background-color: #fff;
-  border: 2px solid #e91e63;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  width: 150px;
-  height: 150px;
-  font-size: 2em;
-  color: #e91e63;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.puzzle-piece:hover {
-  transform: scale(1.05);
-}
-
-/* Revealed piece styles */
-.puzzle-piece.revealed {
-  background-color: #e91e63;
-  color: #fff;
-  font-size: 0.9em;
-  padding: 10px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Reset button styles */
-.reset-btn {
-  background-color: #e91e63;
-  border: none;
-  padding: 10px 20px;
-  color: #fff;
-  font-size: 1em;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.reset-btn:hover {
-  background-color: #d81b60;
-}
-
-.reset-btn:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
