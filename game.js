@@ -151,5 +151,25 @@ function restartGame() {
   clearInterval(game);
   game = setInterval(drawGame, speed);
 }
+window.onload = () => {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.4; // softer volume
+  music.play().catch(err => {
+    console.log("Auto-play blocked. Music will start on user interaction.");
+  });
+};
+
+function toggleMusic() {
+  const music = document.getElementById("bgMusic");
+  const btn = document.getElementById("toggleMusicBtn");
+
+  if (music.paused) {
+    music.play();
+    btn.textContent = "🎵 Tắt nhạc";
+  } else {
+    music.pause();
+    btn.textContent = "🎵 Bật nhạc";
+  }
+}
 
 let game = setInterval(drawGame, 150);
