@@ -7,13 +7,19 @@
   <script src="game.js" defer></script>
 </head>
 <body>
-  <h1>Chúc Mừng Sinh Nhật Trúc Duy 🐍🎉</h1>
+  <h1>Chúc Mừng Sinh Nhật 🐍🎉</h1>
   <audio id="eatSound" src="eat.mp3" preload="auto"></audio>
   <canvas id="gameCanvas" width="400" height="400"></canvas>
   <audio id="bgMusic" src="bg-music.mp3" loop preload="auto"></audio>
+  <button id="startBtn" onclick="startGame()">🎮 Bắt đầu</button>
   <button id="toggleMusicBtn" onclick="toggleMusic()">🎵 Tắt nhạc</button>
   <button id="restartBtn" onclick="restartGame()">🔁 Chơi Lại</button>
-  
+  <div id="wishPopup" class="wish-popup">
+    <div class="wish-popup-content">
+      <p id="wishPopupText"></p>
+      <p class="continue-text">Nhấn phím mũi tên để tiếp tục</p>
+    </div>
+  </div>
   <div id="wishBox"></div>
   <div id="celebration">
     <img src="trucduy.jpg" alt="Trúc Duy" />
