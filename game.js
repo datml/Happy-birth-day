@@ -45,10 +45,9 @@ function drawGame() {
   ctx.fillStyle = "#4caf50";
   ctx.fillRect(food.x, food.y, box, box);
 
-  // Move snake
+  // Calculate new head position
   let headX = snake[0].x;
   let headY = snake[0].y;
-
   if (direction === "LEFT") headX -= box;
   if (direction === "UP") headY -= box;
   if (direction === "RIGHT") headX += box;
@@ -65,33 +64,33 @@ function drawGame() {
     return;
   }
 
+  // Create the new head
   let newHead = { x: headX, y: headY };
 
+  // Check if food is eaten
   if (headX === food.x && headY === food.y) {
-    showWish(score);
+    showWish(score);      // Display wish corresponding to current score
     score++;
     food = spawnFood();
-  } else {
-    snake.pop();
-  }
 
-  snake.unshift(newHead);
-    if (headX === food.x && headY === food.y) {
-    showWish(score);
-    score++;
-    food = spawnFood();
-  
-    // Increase speed
-    speed = Math.max(60, speed - 20); // Lower = faster
+    // Increase speed: Lower value means faster speed
+    speed = Math.max(60, speed - 20);
     clearInterval(game);
     game = setInterval(drawGame, speed);
+  } else {
+    snake.pop();  // Remove last segment if no food eaten
   }
+
+  // Add new head to the beginning of the snake array
+  snake.unshift(newHead);
+
+  // Check if all wishes have been collected
   if (score >= wishes.length) {
     celebrate();
     clearInterval(game);
   }
-  
 }
+
 
 function collision(x, y, array) {
   return array.some(segment => segment.x === x && segment.y === y);
