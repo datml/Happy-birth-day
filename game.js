@@ -12,10 +12,10 @@ let isPaused = false;
 let lastKeyPressTime = 0;
 
 const wishes = [
-  "🌟 Tuổi 21 thật bùng nổ với nhiều thành công và trải nghiệm .",
-  "🌸 Mỗi ngày đều đầy tiếng cười và những hạnh phúc ngọt ngào.",
-  "🎓 Hành trình sinh viên thật đáng nhớ và tràn ngập cảm hứng.",
-  "💖 Chúc một tuổi mới rực rỡ, đáng yêu, và thật nhiều niềm vui!",
+  "🌟 Chúc tuổi 21 của bạn thật bùng nổ với nhiều thành công và trải nghiệm.",
+  "🌸 Chúc mỗi ngày của bạn đều đầy tiếng cười và những hạnh phúc ngọt ngào.",
+  "🎓 Chúc bạn học tập hiệu quả và đạt được mọi mục tiêu đã đặt ra.",
+  "💖 Chúc bạn một tuổi mới rực rỡ, đáng yêu, và thật nhiều niềm vui!",
   ""
 ];
 
