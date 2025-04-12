@@ -9,17 +9,25 @@ let direction = null;
 let food = spawnFood();
 let score = 0;
 let isPaused = false;
+let lastKeyPressTime = 0;
 
 const wishes = [
   "🌟 Tuổi 21 thật bùng nổ với nhiều thành công và trải nghiệm .",
   "🌸 Mỗi ngày đều đầy tiếng cười và những hạnh phúc ngọt ngào.",
   "🎓 Hành trình sinh viên thật đáng nhớ và tràn ngập cảm hứng.",
-  "💖 Chúc một tuổi mới rực rỡ, đáng yêu, và thật nhiều niềm vui!"
+  "💖 Chúc một tuổi mới rực rỡ, đáng yêu, và thật nhiều niềm vui!",
+  ""
 ];
 
-document.addEventListener("keydown", changeDirection);
+document.addEventListener("keydown", changeDirection, { passive: false });
 
+// Replace just the changeDirection function
 function changeDirection(e) {
+  // Prevent default action for arrow keys to avoid page scrolling
+  if (e.keyCode >= 37 && e.keyCode <= 40) {
+    e.preventDefault();
+  }
+
   if (isPaused) {
     // If paused and any key is pressed, resume game
     if (e.keyCode >= 37 && e.keyCode <= 40) { // Arrow keys
@@ -29,10 +37,15 @@ function changeDirection(e) {
   }
 
   const key = e.keyCode;
-  if (key === 37 && direction !== "RIGHT") direction = "LEFT";
-  else if (key === 38 && direction !== "DOWN") direction = "UP";
-  else if (key === 39 && direction !== "LEFT") direction = "RIGHT";
-  else if (key === 40 && direction !== "UP") direction = "DOWN";
+
+  // Store the last direction to prevent rapid reversals
+  // This is crucial for responsiveness without breaking the game logic
+  const lastDirection = direction;
+
+  if (key === 37 && lastDirection !== "RIGHT") direction = "LEFT";
+  else if (key === 38 && lastDirection !== "DOWN") direction = "UP";
+  else if (key === 39 && lastDirection !== "LEFT") direction = "RIGHT";
+  else if (key === 40 && lastDirection !== "UP") direction = "DOWN";
 }
 
 function spawnFood() {
@@ -48,6 +61,7 @@ function drawGame() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawGrid();
 
+  
   // Draw snake
   for (let i = 0; i < snake.length; i++) {
     ctx.fillStyle = i === 0 ? "#e91e63" : "#f48fb1";
@@ -302,4 +316,11 @@ function createBalloons() {
     document.body.appendChild(balloon);
   }
 }
+function showTutorial() {
+  document.getElementById("tutorialPopup").style.display = "flex";
+}
+function hideTutorial() {
+  document.getElementById("tutorialPopup").style.display = "none";
+}
+
 let game;
