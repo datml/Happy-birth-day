@@ -6,24 +6,46 @@
   <link rel="stylesheet" href="styles.css">
   <script src="game.js" defer></script>
 </head>
-<body>
-  <h1>Chúc Mừng Sinh Nhật 🐍🎉</h1>
+<body >
   <audio id="eatSound" src="eat.mp3" preload="auto"></audio>
-  <canvas id="gameCanvas" width="400" height="400"></canvas>
-  <audio id="bgMusic" src="bg-music.mp3" loop preload="auto"></audio>
-  <button id="startBtn" onclick="startGame()">🎮 Bắt đầu</button>
-  <button id="toggleMusicBtn" onclick="toggleMusic()">🎵 Tắt nhạc</button>
-  <button id="restartBtn" onclick="restartGame()">🔁 Chơi Lại</button>
+   <audio id="bgMusic" src="bg-music.mp3" loop preload="auto"></audio>
+  <div id="container">
+    <h1>Chúc Mừng Sinh Nhật 🐍🎉</h1>
+    <h1>Mini Game</h1>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    
+    <div id="buttons">
+      <button id="startBtn" onclick="startGame()">🎮 Bắt đầu</button>
+      <button id="toggleMusicBtn" onclick="toggleMusic()">🎵 Tắt nhạc</button>
+      <button id="restartBtn" onclick="restartGame()">🔁 Chơi Lại</button>
+      <button id="tutorialBtn" onclick="showTutorial()">📙 Hướng dẫn</button>
+    </div>
+  </div>
+  
+  <!-- Existing popup and celebration elements remain below -->
   <div id="wishPopup" class="wish-popup">
     <div class="wish-popup-content">
       <p id="wishPopupText"></p>
       <p class="continue-text">Nhấn phím mũi tên để tiếp tục</p>
     </div>
   </div>
+  
   <div id="wishBox"></div>
+  
   <div id="celebration">
     <img src="trucduy.jpg" alt="Trúc Duy" />
     <h2>🎈🎉 Chúc mừng sinh nhật Trúc Duy! 🎉🎈</h2>
+  </div>
+  
+  <div id="tutorialPopup" class="tutorial-popup">
+    <div class="tutorial-popup-content">
+      <p>🐍Sử dụng các phím mũi tên để điều khiển<br>
+         rắn sinh nhật thu thập những lời chúc <br>
+         và chiến thắng trò chơi nào!<br>  
+         Ấn nút bắt đầu để chơi!
+      </p>
+      <button onclick="hideTutorial()">Đóng</button>
+    </div>
   </div>
 </body>
 </html>
