@@ -1,5 +1,5 @@
 /// game.js - Final version with centered popup and improved game over
-let speed = 200;
+let speed = 350; // slower snake movement
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
