@@ -49,9 +49,12 @@ function changeDirection(e) {
 }
 
 function spawnFood() {
+  const min = 3;
+  const max = 16; // 19 - 3
+
   return {
-    x: Math.floor(Math.random() * 19) * box,
-    y: Math.floor(Math.random() * 19) * box
+    x: Math.floor(Math.random() * (max - min + 1) + min) * box,
+    y: Math.floor(Math.random() * (max - min + 1) + min) * box
   };
 }
 
